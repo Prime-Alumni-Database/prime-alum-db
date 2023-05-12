@@ -61,5 +61,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# Scope Doc & Images
+scope_doc
+
 # ignore package-lock as it complicates merging
 package-lock.json

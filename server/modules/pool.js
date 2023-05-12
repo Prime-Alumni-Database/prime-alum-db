@@ -1,8 +1,8 @@
 /* the only line you likely need to change is
 
- database: 'prime_app',
+ database: 'prime_alum_db',
 
- change `prime_app` to the name of your database, and you should be all set!
+ change `prime_alum_db` to the name of your database, and you should be all set!
 */
 
 const pg = require('pg');
@@ -14,8 +14,9 @@ if (process.env.DATABASE_URL) {
   // Heroku gives a url, not a connection object
   // https://github.com/brianc/node-pg-pool
   const params = url.parse(process.env.DATABASE_URL);
+  console.log("pool.js process.env.DATABASE_URL: " + process.env.DATABASE_URL);
   const auth = params.auth.split(':');
-
+  console.log("pool.js params: " + params + ", auth: " + " auth: " + auth);
   config = {
     user: auth[0],
     password: auth[1],
@@ -30,7 +31,7 @@ if (process.env.DATABASE_URL) {
   config = {
     host: 'localhost', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
-    database: 'prime_app', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
+    database: 'prime_alum_db', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
