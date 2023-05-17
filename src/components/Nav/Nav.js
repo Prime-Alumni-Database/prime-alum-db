@@ -7,7 +7,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">Prime Solo Project</h2>
+      <h2 className="nav-title">PADbase - Prime Alumni Databas</h2>
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
