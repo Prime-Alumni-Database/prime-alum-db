@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 
 
 
-class DashboardPage extends Component {
+class Dashboard extends Component {
   componentDidMount() {
     // this.props.dispatch({type: 'FETCH_TASKS'})
     // this.props.dispatch({ type: 'FETCH_REQUIREMENTS' })
