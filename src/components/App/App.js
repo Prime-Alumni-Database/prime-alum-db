@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 
 import './App.css';
+import Dashboard from '../Dashboard/Dashboard';
 
 class App extends Component {
   componentDidMount () {
@@ -46,7 +47,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={Dashboard}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
