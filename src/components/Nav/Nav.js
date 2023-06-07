@@ -3,35 +3,68 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
+import GoogleSignin from "../Chat/img/btn_google_signin_dark_pressed_web.png";
+import { auth } from '../../firebase';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
-const Nav = (props) => (
-  <div className="nav">
-    <Link to="/home">
-      <h2 className="nav-title">PADbase - Prime Alumni Database</h2>
-    </Link>
-    <div className="nav-right">
-      <Link className="nav-link" to="/home">
-        {/* Show this link if they are logged in or not,
-        but call this link 'Home' if they are logged in,
-        and call this link 'Login / Register' if they are not */}
-        {props.user.id ? 'Home' : 'Login / Register'}
+const Nav = (props) => {
+  const [user] = useAuthState(auth);
+
+  const googleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider);
+  };
+
+  const signOut = () => {
+    auth.signOut();
+  };
+
+  return (
+    <div className="nav">
+      <Link to="/home">
+        <h2 className="nav-title">PADbase - Prime Alumni Database</h2>
       </Link>
-      {/* Show the link to the info page and the logout button if the user is logged in */}
-      {props.user.id && (
+      <div className="nav-right">
+        <Link className="nav-link" to="/home">
+          {/* Show this link if they are logged in or not,
+          but call this link 'Home' if they are logged in,
+          and call this link 'Login / Register' if they are not */}
+          {props.user.id ? 'Home' : 'Login / Register'}
+        </Link>
+        {/* Show the link to the info page and the logout button if the user is logged in */}
+        {props.user.id && (
+          <>
+            <Link className="nav-link" to="/info">
+              Info Page
+            </Link>
+            <LogOutButton className="nav-link" />
+          </>
+        )}
+        {/* Always show this link since the about page is not protected */}
+        <Link className="nav-link" to="/about">
+          About
+        </Link>
         <>
-          <Link className="nav-link" to="/info">
-            Info Page
-          </Link>
-          <LogOutButton className="nav-link"/>
+          {user ? (
+            <button onClick={signOut} className="sign-out" type="button">
+              Sign Out
+            </button>
+          ) : (
+            <button className="sign-in">
+              <img
+                onClick={googleSignIn}
+                src={GoogleSignin}
+                alt="sign in with google"
+                type="button"
+              />
+            </button>
+          )}
         </>
-      )}
-      {/* Always show this link since the about page is not protected */}
-      <Link className="nav-link" to="/about">
-        About
-      </Link>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Instead of taking everything from state, we just want the user
 // object to determine if they are logged in
