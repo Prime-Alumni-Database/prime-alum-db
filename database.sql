@@ -95,4 +95,5 @@ INSERT INTO "campus" (name, city, state)
 INSERT INTO "cohort" (name,start_date, end_date, type, campus_id)
  VALUES ('Amethyst','2023-01-20','2023-05-07','UX','1'),
  		('Citrine','2023-03-20','2023-07-07','Full Stack','1'),
- 		('Aquamarine','2023-02-20','2023-06-07','Full Stack','1');
+ 		('Aquamarine','2023-02-20','2023-06-07','Full Stack','1'),
+        ('Baconian', '2019-02-25', '2019-07-12', 'Full Stack', '1');

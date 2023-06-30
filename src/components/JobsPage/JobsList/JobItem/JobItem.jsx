@@ -29,12 +29,8 @@ export default function JobItem({ job }) {
 
       <div className='job-post-mid'>
 
-<<<<<<< HEAD
-        <div className='font-bold hover:underline text-emerald-700'>
-=======
         {/* POSITION TITLE W/ LINK */}
         <div className='font-bold hover:underline text-blue-600'>
->>>>>>> 0348146 (saving for unstaged changes)
           <a href={link}>{position}</a>
         </div>
 
@@ -54,7 +50,7 @@ export default function JobItem({ job }) {
 
       </div>
 
-     {/* FUTURE FEATURE: SAVE BTN / T HUMBS UP THUMBS DOWN??? / DELETE JOBS? */}
+     {/* FUTURE FEATURE: SAVE BTN / THUMBS UP THUMBS DOWN??? / DELETE JOBS? */}
       <div className='job-post-right'>
       </div>
 
