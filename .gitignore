@@ -61,6 +61,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.envExample
 
 # ignore package-lock as it complicates merging
 package-lock.json
