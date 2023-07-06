@@ -1,3 +1,5 @@
+This is the first version of PADbase. It is outdated. See the `prime-alumni-db` repo for the current version.
+
 # Prime Alumni Database
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
